@@ -22,7 +22,7 @@ class Publication(Base):
     quote_index = sql.Column(sql.Float, nullable=False)
     date = sql.Column(sql.DateTime, nullable=False)
 
-    # authors = relationship('Person', secondary=publication_person, back_populates='publication')
+    authors = relationship('Person', secondary=publication_person)
 
     def serialize(self):
         return {

@@ -232,3 +232,31 @@ def generate_place():
     return random.choice([
         "Москва", "Санкт-Петербург", "Новосибирск", "Хабаровск", "Южно-Сахалинск", "Сочи"
     ])
+
+
+def generate_study_type():
+    return random.choice([
+        "бюджет", "контракт"
+    ])
+
+
+def generate_school():
+    return random.choice([
+        "очная", "заочная", "вечерняя"
+    ])
+
+
+def generate_weekday():
+    return random.randrange(14)
+
+
+def generate_hour():
+    return random.randrange(8, 19)
+
+
+def generate_minute():
+    return random.randrange(60)
+
+
+def generate_room():
+    return random.randrange(100, 4999)
