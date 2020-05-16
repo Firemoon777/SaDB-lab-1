@@ -201,7 +201,9 @@ def generate_qualification():
 def generate_dormatory():
     return random.choice([
         "Вяземский пер., 3А",
-        "Белорусская ул., 6"
+        "Белорусская ул., 6",
+        "Ленсовета",
+        "Альпийский п-к",
     ])
 
 
@@ -280,3 +282,15 @@ def generate_project_name():
 
 def generate_book_name():
     return "Книга #" + str(random.randrange(5000))
+
+
+def generate_bool():
+    return True if random.randrange(2) == 1 else False
+
+
+def generate_warnings():
+    return random.randrange(10)
+
+
+def generate_max_person():
+    return random.randrange(4)

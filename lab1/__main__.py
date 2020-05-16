@@ -25,3 +25,6 @@ if __name__ == '__main__':
     from .generator.oracle import fill_oracle
     oracle_create_schema(databases['oracle']['engine'])
     fill_oracle()
+
+    from .generator.mongo import fill_mongo
+    fill_mongo()
