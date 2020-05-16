@@ -1,4 +1,5 @@
 import datetime
+import sys
 
 from lab1.model.postgres import Rating
 from .common import *
@@ -7,6 +8,8 @@ from ..model.postgres.discipline import Discipline
 from sqlalchemy.orm import sessionmaker
 
 def fill_postgres():
+    print('Генерация данных в postgres...', end='')
+    sys.stdout.flush()
     Session = sessionmaker(bind=databases['postgres']['engine'])
     session = Session()
 
@@ -14,7 +17,6 @@ def fill_postgres():
     rating_count = 5*discipline_count
 
     disciplines = []
-    print('Генерируем дисциплины', end='')
     for i in range(discipline_count):
         d = Discipline()
         d.university_name = generate_university()
@@ -29,10 +31,7 @@ def fill_postgres():
         d.is_exam = generate_is_exam()
         session.add(d)
         disciplines.append(d)
-        print('.', end='')
-    print()
 
-    print('Генерируем оценки', end='')
     for i in range(rating_count):
         r = Rating()
         r.discipline = random.choice(disciplines)
@@ -44,7 +43,5 @@ def fill_postgres():
         r.teacher_id = generate_person_id()
 
         session.add(r)
-        print('.', end='')
-    print()
-
     session.commit()
+    print('ОК')

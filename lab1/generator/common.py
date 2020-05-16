@@ -72,7 +72,7 @@ __surnames = [
 ]
 
 def generate_name():
-    sex = random.randrange(1)
+    sex = random.randrange(2)
     if sex == 1:
         return random.choice(__surnames) + " " + random.choice(__names_male)
     else:
