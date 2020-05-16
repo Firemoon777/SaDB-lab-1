@@ -32,4 +32,9 @@ exit;
 ### MySQL
 
 1. `docker pull mysql`
-1. `docker run --name mysql -e MYSQL_ROOT_PASSWORD=superstr0ngpassword -e MYSQL_USER=lab_mysql_user -e MYSQL_PASSWORD=lab_mysql_user_password -d mysql`
+1. `docker run --name mysql -e MYSQL_ROOT_PASSWORD=superstr0ngpassword -e MYSQL_USER=lab_mysql_user -e MYSQL_PASSWORD=lab_mysql_user_password -d -p 0.0.0.0:3306:3306 mysql`
+
+### PostgreSQL
+
+1. `docker pull postgres`
+1. `docker run --name some-postgres -e POSTGRES_USER=lab_postgre_user -e POSTGRES_PASSWORD=lab_postgre_user_password -d -p 0.0.0.0:5432:5432 postgres`
