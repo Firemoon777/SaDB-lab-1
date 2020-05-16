@@ -14,16 +14,16 @@ class Project(Base):
     id = sql.Column(sql.Integer, autoincrement=True, primary_key=True)
 
     name = sql.Column(sql.String(100), nullable=False)
-    dateFrom = sql.Column(sql.DateTime, nullable=False)
-    dateTo = sql.Column(sql.DateTime, nullable=False)
+    date_from = sql.Column(sql.DateTime, nullable=False)
+    date_to = sql.Column(sql.DateTime, nullable=False)
 
-    participants = relationship('Person', secondary=project_person, back_populates='projects')
+    participants = relationship('Person', secondary=project_person)
 
     def serialize(self):
         return {
             'id': self.id,
             'name': self.name,
-            'dateFrom': self.dateFrom,
-            'dateTo': self.dateTo,
+            'date_from': self.date_from,
+            'date_to': self.date_to,
             'participants': [p.serialize() for p in self.participants]
         }

@@ -17,7 +17,7 @@ class Conference(Base):
     place = sql.Column(sql.String(100), nullable=False)
     date = sql.Column(sql.DateTime, nullable=False)
 
-    participants = relationship('Person', secondary=conference_person, back_populates='conferences')
+    participants = relationship('Person', secondary=conference_person)
 
     def serialize(self):
         return {

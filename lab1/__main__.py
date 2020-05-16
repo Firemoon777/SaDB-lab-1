@@ -16,8 +16,10 @@ if __name__ == '__main__':
     postgres_create_schema(databases['postgres']['engine'])
     fill_postgres()
 
-    # from lab1.model.mysql import create_schema as mysql_create_schema
-    # mysql_create_schema(databases['mysql']['engine'])
+    from lab1.model.mysql import create_schema as mysql_create_schema
+    from .generator.mysql import fill_mysql
+    mysql_create_schema(databases['mysql']['engine'])
+    fill_mysql()
 
     from lab1.model.oracle import create_schema as oracle_create_schema
     from .generator.oracle import fill_oracle

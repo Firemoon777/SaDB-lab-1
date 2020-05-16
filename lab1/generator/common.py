@@ -260,3 +260,23 @@ def generate_minute():
 
 def generate_room():
     return random.randrange(100, 4999)
+
+
+def generate_publication_name():
+    return "Публикация #" + str(random.randrange(5000))
+
+
+def generate_pages():
+    return random.randrange(50)
+
+
+def generate_quote_index():
+    return random.uniform(0, 100)
+
+
+def generate_project_name():
+    return "Проект #" + str(random.randrange(5000))
+
+
+def generate_book_name():
+    return "Книга #" + str(random.randrange(5000))
