@@ -5,10 +5,10 @@ from lab1.model.mysql.project import project_person
 from . import Base
 
 
-class Person(Base):
-    __tablename__ = 'person'
+class OraclePerson(Base):
+    __tablename__ = 'oracle_person'
 
-    id = sql.Column(sql.Integer, autoincrement=True, primary_key=True)
+    id = sql.Column(sql.Integer, sql.Sequence('oracle_person_seq_id'), primary_key=True)
 
     name = sql.Column(sql.String(100), nullable=False)
     birth_date = sql.Column(sql.Date, nullable=False)

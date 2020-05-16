@@ -23,7 +23,8 @@ def init_sql_engines():
 
         databases[s] = {
             'engine': create_engine(
-                f'{proto}://{username}:{password}@{url}'
+                f'{proto}://{username}:{password}@{url}',
+                encoding='UTF-8'
             )
         }
 

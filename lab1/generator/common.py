@@ -226,3 +226,9 @@ def generate_rating():
 
 def generate_person_id():
     return random.randrange(100000, 400000)
+
+
+def generate_place():
+    return random.choice([
+        "Москва", "Санкт-Петербург", "Новосибирск", "Хабаровск", "Южно-Сахалинск", "Сочи"
+    ])

@@ -7,6 +7,7 @@ from ..model import databases
 from ..model.postgres.discipline import Discipline
 from sqlalchemy.orm import sessionmaker
 
+
 def fill_postgres():
     print('Генерация данных в postgres...', end='')
     sys.stdout.flush()

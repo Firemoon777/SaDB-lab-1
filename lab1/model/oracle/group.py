@@ -6,13 +6,13 @@ from . import Base
 
 group_person = sql.Table('group_person', Base.metadata,
     sql.Column('group_id', sql.Integer, sql.ForeignKey('group.id')),
-    sql.Column('person_id', sql.Integer, sql.ForeignKey('person.id'))
+    sql.Column('person_id', sql.Integer, sql.ForeignKey('oracle_person.id'))
 )
 
 class Group(Base):
     __tablename__ = 'group'
 
-    id = sql.Column(sql.Integer, autoincrement=True, primary_key=True)
+    id = sql.Column(sql.Integer, sql.Sequence('group_seq_id'), primary_key=True)
 
     name = sql.Column(sql.String(100), nullable=False)
     study_type = sql.Column(sql.String(200), nullable=False)
@@ -21,7 +21,7 @@ class Group(Base):
     speciality = sql.Column(sql.String(200), nullable=False)
     qualification = sql.Column(sql.String(200), nullable=False)
     study_year = sql.Column(sql.String(10),nullable=False)
-    students = relationship('Person', secondary=group_person)
+    students = relationship('OraclePerson', secondary=group_person)
 
 
     def serialize(self):
