@@ -50,3 +50,4 @@ exit;
 1. Устанавливаем Python 3.6.x
 2. Устанавливаем все пакеты из requirements.txt
 3. Для Оракла накатываем библиотеки [по ссылке](https://oracle.github.io/odpi/doc/installation.html#oracle-instant-client-zip)
+4. Для MySQL и PostgreSQL могут потребоваться дополнительные пакеты из пакетного менеджера вашей ОС

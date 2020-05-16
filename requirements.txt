@@ -1,2 +1,5 @@
 sqlalchemy
 cx_Oracle
+mysqlclient
+psycopg2
+MongoEngine
