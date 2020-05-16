@@ -45,7 +45,7 @@ exit;
 ### MongoDB
 
 1. `docker pull mongo`
-1. `docker run --name mongodb -e MONGO_INITDB_ROOT_USERNAME=lab_mongo_user -e MONGO_INITDB_ROOT_PASSWORD=lab_mongo_user_password -d -p 0.0.0.0:27017:27017 mongo`
+1. `docker run --name mongodb -e MONGO_INITDB_DATABASE=lab -e MONGO_INITDB_ROOT_USERNAME=lab_mongo_user -e MONGO_INITDB_ROOT_PASSWORD=lab_mongo_user_password -d -p 0.0.0.0:27017:27017 mongo`
 
 ## Подготовка клиента
 
