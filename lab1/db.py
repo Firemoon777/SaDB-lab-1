@@ -1,5 +1,5 @@
 from mongoengine import get_db
-from sqlalchemy import create_engine,
+from sqlalchemy import create_engine
 from configparser import ConfigParser
 import mongoengine
 from sqlalchemy.ext.declarative import declarative_base
@@ -29,6 +29,7 @@ def init_sql_engines():
 
         print(f'Подключение к {s} инициализировано')
 
+
 def init_mongo_engine():
     config = ConfigParser()
     config.read('db.cfg')
@@ -50,12 +51,12 @@ def init_mongo_engine():
 
     print(f'Подключение к {section} инициалзировано')
 
+
 def __check_sql_helloworld(engine, statement):
     data = databases[engine]['engine'].execute(statement).scalar()
     if data == "Hello, World!":
         return f'{engine}: OK'
     return f'{engine}: FAIL'
-
 
 
 def check_connection():
