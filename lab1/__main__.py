@@ -1,4 +1,4 @@
-from .db import init_sql_engines, init_mongo_engine, check_connection, databases
+from .model import init_sql_engines, init_mongo_engine, check_connection, databases
 
 if __name__ == '__main__':
     init_sql_engines()
@@ -6,5 +6,8 @@ if __name__ == '__main__':
 
     check_connection()
 
-    from lab1.model.postgres import create_schema
-    create_schema(databases['postgres']['engine'])
+    from lab1.model.postgres import create_schema as postgres_create_schema
+    postgres_create_schema(databases['postgres']['engine'])
+
+    from lab1.model.mysql import create_schema as mysql_create_schema
+    mysql_create_schema(databases['mysql']['engine'])

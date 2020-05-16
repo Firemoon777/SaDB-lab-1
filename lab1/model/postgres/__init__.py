@@ -1,4 +1,7 @@
-from lab1.db import Base
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
 from .discipline import Discipline
 from .rating import Rating
 

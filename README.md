@@ -32,7 +32,9 @@ exit;
 ### MySQL
 
 1. `docker pull mysql`
-1. `docker run --name mysql -e MYSQL_ROOT_PASSWORD=superstr0ngpassword -e MYSQL_USER=lab_mysql_user -e MYSQL_PASSWORD=lab_mysql_user_password -d -p 0.0.0.0:3306:3306 mysql`
+1. `docker run --name mysql -e MYSQL_ROOT_PASSWORD=superstr0ngpassword -e MYSQL_USER=lab_mysql_user -e MYSQL_PASSWORD=lab_mysql_user_password -e MYSQL_DATABASE=lab -d -p 0.0.0.0:3306:3306 mysql`
+
+Если контейнер тут же завершается, нужно подкрутить настройки у хоста: `sysctl -w fs.aio-max-nr=2097152`
 
 ### PostgreSQL
 
