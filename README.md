@@ -1,6 +1,6 @@
 # Хранилища и базы данных
 
-## Подготовка
+## Подготовка сервера
 
 ### Docker
 
@@ -44,3 +44,9 @@ exit;
 
 1. `docker pull mongo`
 1. `docker run --name mongodb -e MONGO_INITDB_ROOT_USERNAME=lab_mongo_user -e MONGO_INITDB_ROOT_PASSWORD=lab_mongo_user_password -d -p 0.0.0.0:27017:27017 mongo`
+
+## Подготовка клиента
+
+1. Устанавливаем Python 3.6.x
+2. Устанавливаем все пакеты из requirements.txt
+3. Для Оракла накатываем библиотеки [по ссылке](https://oracle.github.io/odpi/doc/installation.html#oracle-instant-client-zip)
