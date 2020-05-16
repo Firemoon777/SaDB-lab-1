@@ -11,3 +11,6 @@ if __name__ == '__main__':
 
     from lab1.model.mysql import create_schema as mysql_create_schema
     mysql_create_schema(databases['mysql']['engine'])
+
+    from lab1.model.oracle import create_schema as oracle_create_schema
+    oracle_create_schema(databases['oracle']['engine'])
