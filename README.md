@@ -37,4 +37,10 @@ exit;
 ### PostgreSQL
 
 1. `docker pull postgres`
-1. `docker run --name some-postgres -e POSTGRES_USER=lab_postgre_user -e POSTGRES_PASSWORD=lab_postgre_user_password -d -p 0.0.0.0:5432:5432 postgres`
+1. `docker run --name postgres -e POSTGRES_USER=lab_postgre_user -e POSTGRES_PASSWORD=lab_postgre_user_password -d -p 0.0.0.0:5432:5432 postgres`
+
+
+### MongoDB
+
+1. `docker pull mongo`
+1. `docker run --name mongodb -e MONGO_INITDB_ROOT_USERNAME=lab_mongo_user -e MONGO_INITDB_ROOT_PASSWORD=lab_mongo_user_password -d -p 0.0.0.0:27017:27017 mongo`
