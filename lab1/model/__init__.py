@@ -27,7 +27,7 @@ def init_sql_engines():
             )
         }
 
-        print(f'Подключение к {s} инициализировано')
+        # print(f'Подключение к {s} инициализировано')
 
 
 def init_mongo_engine():
@@ -49,7 +49,8 @@ def init_mongo_engine():
         host=f'mongodb://{username}:{password}@{url}'
     )
 
-    print(f'Подключение к {section} инициалзировано')
+
+    # print(f'Подключение к {section} инициалзировано')
 
 
 def __check_sql_helloworld(engine, statement):
@@ -63,3 +64,12 @@ def check_connection():
     print(__check_sql_helloworld('oracle', "select 'Hello, World!' from dual"))
     print(__check_sql_helloworld('postgres', "select 'Hello, World!'"))
     print(__check_sql_helloworld('mysql', "select 'Hello, World!'"))
+
+    try:
+        class test(mongoengine.Document):
+            id = mongoengine.StringField()
+
+        test.objects()
+        print('mongo: OK')
+    except:
+        print('mongo: FAIL')

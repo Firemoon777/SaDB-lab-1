@@ -4,7 +4,7 @@ from lab1.model.mongo.person import Person
 from lab1.model.mongo.room import Room
 
 
-class Dormitory(Document):
+class DormitoryPerson(Document):
     person = ReferenceField(Person)
     warnings = DecimalField(default=0)
     room = ReferenceField(Room)
