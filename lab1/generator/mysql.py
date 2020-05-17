@@ -32,7 +32,7 @@ def fill_mysql():
         c = Conference()
         c.name = generate_conference()
         c.place = generate_place()
-        c.date = datetime.datetime.now()
+        c.date = generate_date()
         for p in random.choices(persons, k=random.randrange(person_count)):
             c.participants.append(p)
 
@@ -46,7 +46,7 @@ def fill_mysql():
         p.pages = generate_pages()
         p.place = generate_place()
         p.type = generate_publication_type()
-        p.date = datetime.datetime.now()
+        p.date = generate_date()
         p.quote_index = generate_quote_index()
         for a in random.choices(persons, k=random.randrange(3)):
             p.authors.append(a)
@@ -56,8 +56,8 @@ def fill_mysql():
     for i in range(project_count):
         p = Project()
         p.name = generate_project_name()
-        p.date_from = datetime.datetime.now()
-        p.date_to = datetime.datetime.now()
+        p.date_from = generate_date()
+        p.date_to = generate_date()
         for person in random.choices(persons, k=random.randrange(10)):
             p.participants.append(person)
 
@@ -67,8 +67,8 @@ def fill_mysql():
         record1 = LibraryRecord()
         record1.book_name = generate_book_name()
         record1.taken_by = random.choice(persons)
-        record1.taken_at = datetime.datetime.now()
-        record1.returned_at = datetime.datetime.now()
+        record1.taken_at = generate_date()
+        record1.returned_at = generate_date()
         session.add(record1)
 
     session.commit()

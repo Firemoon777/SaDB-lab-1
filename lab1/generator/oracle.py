@@ -23,7 +23,7 @@ def fill_oracle():
         p = OraclePerson()
         p.id = generate_person_id()
         p.name = generate_name()
-        p.birth_date = datetime.datetime.now()
+        p.birth_date = generate_date()
         p.birth_place = generate_place()
         p.faculty = generate_faculty()
         p.position = generate_position()
@@ -36,7 +36,7 @@ def fill_oracle():
         r = Rating()
         r.discipline = generate_discipline()
         r.rating, r.rating_letter = generate_rating()
-        r.date = datetime.datetime.now()
+        r.date = generate_date()
         r.student = random.choice(persons)
         session.add(r)
 

@@ -37,7 +37,7 @@ def fill_postgres():
         r = Rating()
         r.discipline = random.choice(disciplines)
         r.rating, a = generate_rating()
-        r.date = datetime.datetime.now()
+        r.date = generate_date()
         r.teacher_name = generate_name()
         r.student_name = generate_name()
         r.student_id = generate_person_id()

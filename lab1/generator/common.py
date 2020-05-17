@@ -1,4 +1,6 @@
+import datetime
 import random
+import time
 
 __names_male = [
     "Александр",
@@ -294,3 +296,11 @@ def generate_warnings():
 
 def generate_max_person():
     return random.randrange(4)
+
+
+def random_time(start, size):
+    return start + random.randrange(size)
+
+
+def generate_date():
+    return datetime.datetime.fromtimestamp(random_time(1567296000, 23673600))

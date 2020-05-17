@@ -28,7 +28,7 @@ def fill_mongo():
         r.room_number = str(generate_room() % r.dormitory.total_rooms)
         r.max_person = generate_max_person()
         r.insects = generate_bool()
-        r.latest_debug = datetime.datetime.now()
+        r.latest_debug = generate_date()
         r.save()
         rooms.append(r)
 
@@ -44,8 +44,8 @@ def fill_mongo():
         d.warnings = generate_warnings()
         d.room = random.choice(rooms)
         d.price = 500
-        d.lives_from = datetime.datetime.now()
-        d.lives_to = datetime.datetime.now()
+        d.lives_from = generate_date()
+        d.lives_to = generate_date()
         d.save()
 
 
