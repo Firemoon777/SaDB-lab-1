@@ -19,7 +19,6 @@ class OraclePerson(Base):
     contractFrom = sql.Column(sql.Date, nullable=False)
     contractTo = sql.Column(sql.Date, nullable=False)
 
-
     def serialize(self):
         return {
             'id': self.id,

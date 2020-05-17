@@ -4,13 +4,13 @@ from sqlalchemy.orm import relationship
 from lab1.model.mysql.project import project_person
 from . import Base
 
-group_person = sql.Table('group_person', Base.metadata,
-    sql.Column('group_id', sql.Integer, sql.ForeignKey('group.id')),
+group_person = sql.Table('oracle_group_person', Base.metadata,
+    sql.Column('group_id', sql.Integer, sql.ForeignKey('oracle_group.id')),
     sql.Column('person_id', sql.Integer, sql.ForeignKey('oracle_person.id'))
 )
 
 class Group(Base):
-    __tablename__ = 'group'
+    __tablename__ = 'oracle_group'
 
     id = sql.Column(sql.Integer, sql.Sequence('group_seq_id'), primary_key=True)
 
@@ -22,7 +22,6 @@ class Group(Base):
     qualification = sql.Column(sql.String(200), nullable=False)
     study_year = sql.Column(sql.String(10),nullable=False)
     students = relationship('OraclePerson', secondary=group_person)
-
 
     def serialize(self):
         return {

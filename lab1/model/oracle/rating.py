@@ -5,7 +5,7 @@ from . import Base
 
 
 class Rating(Base):
-    __tablename__ = 'rating'
+    __tablename__ = 'oracle_rating'
 
     id = sql.Column(sql.Integer, sql.Sequence('rating_seq_id'), primary_key=True)
 
@@ -15,7 +15,6 @@ class Rating(Base):
     date = sql.Column(sql.DateTime, nullable=False)
     student_id = sql.Column(sql.Integer, sql.ForeignKey('oracle_person.id'), nullable=False)
     student = relationship('OraclePerson')
-    
     
     def serialize(self):
         return {
