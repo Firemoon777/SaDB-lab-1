@@ -22,6 +22,7 @@ def fill_mysql():
     persons = []
     for i in range(person_count):
         p = Person()
+        p.id = generate_person_id()
         p.name = generate_name()
         p.position = generate_position()
         session.add(p)

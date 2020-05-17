@@ -7,7 +7,7 @@ from . import Base
 class Person(Base):
     __tablename__ = 'f_person'
 
-    id = sql.Column(sql.Integer, sql.Sequence('f_person_seq_id'), primary_key=True)
+    id = sql.Column(sql.Integer, primary_key=True)
 
     name = sql.Column(sql.String(100))
     position = sql.Column(sql.String(100))

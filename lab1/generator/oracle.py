@@ -21,13 +21,14 @@ def fill_oracle():
     persons = []
     for i in range(person_count):
         p = OraclePerson()
+        p.id = generate_person_id()
         p.name = generate_name()
         p.birth_date = datetime.datetime.now()
         p.birth_place = generate_place()
         p.faculty = generate_faculty()
         p.position = generate_position()
-        p.contractFrom = datetime.datetime.now()
-        p.contractTo = datetime.datetime.now()
+        p.contract_from = datetime.datetime.now()
+        p.contract_to = datetime.datetime.now()
         session.add(p)
         persons.append(p)
 

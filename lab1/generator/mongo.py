@@ -34,10 +34,10 @@ def fill_mongo():
 
     for i in range(person_count):
         p = Person()
-        p.id = generate_person_id()
+        p.person_id = generate_person_id()
         p.name = generate_name()
-        p.isBeneficiary = generate_bool()
-        p.isContractStudent = generate_bool()
+        p.is_beneficiary = generate_bool()
+        p.is_contract_student = generate_bool()
         p.save()
         d = DormitoryPerson()
         d.person = p

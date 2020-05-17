@@ -14,7 +14,7 @@ class Rating(Base):
     rating_letter = sql.Column(sql.String(2), nullable=False)
     date = sql.Column(sql.DateTime, nullable=False)
     student_id = sql.Column(sql.Integer, sql.ForeignKey('oracle_person.id'), nullable=False)
-    student = relationship('OraclePerson')
+    student = relationship('OraclePerson', foreign_keys=[student_id])
     
     def serialize(self):
         return {

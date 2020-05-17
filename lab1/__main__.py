@@ -1,6 +1,7 @@
 import os
 import sys
 
+from lab1.migration import migrate_all
 from .model import init_sql_engines, init_mongo_engine, check_connection, databases
 
 if __name__ == '__main__':
@@ -37,6 +38,8 @@ if __name__ == '__main__':
         from .model.final import drop_schema as final_drop_schema, create_schema as final_create_schema
         final_drop_schema(databases['oracle']['engine'])
         final_create_schema(databases['oracle']['engine'])
+
+        migrate_all()
 
 
     else:
