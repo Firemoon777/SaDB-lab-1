@@ -24,7 +24,13 @@ def fill_oracle():
         p.id = generate_person_id()
         p.name = generate_name()
         p.birth_date = generate_date()
-        p.birth_place = generate_place()
+
+        p.country_id, p.country = generate_country()
+        p.city_id, p.city = generate_city()
+        p.city_id = p.country_id * 100 + p.city_id
+        p.street_id, p.street = generate_street()
+        p.street_id = p.city_id * 100 + p.street_id
+
         p.faculty = generate_faculty()
         p.position = generate_position()
         p.contract_from = datetime.datetime.now()

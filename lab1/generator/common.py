@@ -183,13 +183,15 @@ def generate_country():
 
 
 def generate_street():
-    return random.choice([
+    data = [
         "Ленина ул.",
         "Советская ул.",
         "Революции пл.",
         "Энтузиастов ул.",
         "Сони Кривой ул.",
-    ])
+    ]
+    i = random.randrange(len(data))
+    return i + 1, data[i]
 
 
 def generate_office():

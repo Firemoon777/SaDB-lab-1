@@ -13,7 +13,14 @@ class Person(Base):
     position = sql.Column(sql.String(100))
 
     birth_date = sql.Column(sql.Date)
-    birth_place = sql.Column(sql.String(100))
+
+    country = sql.Column(sql.String(100))
+    country_id = sql.Column(sql.Integer)
+    city = sql.Column(sql.String(100))
+    city_id = sql.Column(sql.Integer)
+    street = sql.Column(sql.String(100))
+    street_id = sql.Column(sql.Integer)
+
     faculty = sql.Column(sql.String(100))
 
     contract_from = sql.Column(sql.Date)

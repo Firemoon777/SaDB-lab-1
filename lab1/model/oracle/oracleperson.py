@@ -13,8 +13,14 @@ class OraclePerson(Base):
     name = sql.Column(sql.String(100), nullable=False)
     position = sql.Column(sql.String(100), nullable=False)
     birth_date = sql.Column(sql.Date, nullable=False)
-    birth_place = sql.Column(sql.String(100), nullable=False)
     faculty = sql.Column(sql.String(100), nullable=False)
+
+    country = sql.Column(sql.String(100))
+    country_id = sql.Column(sql.Integer)
+    city = sql.Column(sql.String(100))
+    city_id = sql.Column(sql.Integer)
+    street = sql.Column(sql.String(100))
+    street_id = sql.Column(sql.Integer)
 
     contract_from = sql.Column(sql.Date, nullable=False)
     contract_to = sql.Column(sql.Date, nullable=False)

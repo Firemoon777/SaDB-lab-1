@@ -63,7 +63,14 @@ def migrate_all():
         f.id = p.id
         f.name = p.name
         f.position = p.position
-        f.birth_place = p.birth_place
+
+        f.country_id = p.country_id
+        f.country = p.country
+        f.city_id = p.city_id
+        f.city = p.city
+        f.street_id = p.street_id
+        f.street = p.street
+
         f.birth_date = p.birth_date
         f.faculty = p.faculty
         f.contract_from = p.contract_from
