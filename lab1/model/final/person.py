@@ -12,7 +12,8 @@ class Person(Base):
     name = sql.Column(sql.String(100))
     position = sql.Column(sql.String(100))
 
-    birth_date = sql.Column(sql.Date)
+    birth_date_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    birth_date = relationship('FinalTime')
 
     country = sql.Column(sql.String(100))
     country_id = sql.Column(sql.Integer)

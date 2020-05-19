@@ -14,11 +14,12 @@ from .project import Project
 from .publication import Publication
 from .rating import Rating
 from .room import Room
+from .time import FinalTime
 
 
 def drop_schema(engine):
-    Base.metadata.drop_all(engine)
-
+    # Base.metadata.drop_all(engine)
+    pass
 
 def create_schema(engine):
     Base.metadata.create_all(engine)

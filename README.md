@@ -67,6 +67,20 @@ exit;
 
 Повторный запуск удвоит количество записей во всех БД. Количество генерируемых записей можно изменять в функциях `fill_<database>` в `generator/<database>.py`
 
+#### Схемы
+
+Oracle:
+
+![](./res/oracle.png)
+
+PostgreSQL:
+
+![](./res/postgres.png)
+
+MySQL:
+
+![](./res/mysql.png)
+
 ### Задание 2
 
 Необходимо провести миграцию из четырёх БД в единую схему в Oracle DB. Объекты схемы можно найти в `model/final`.
@@ -76,7 +90,28 @@ exit;
 /usr/bin/python3 -m lab1 migrate
 ```
 
+#### Схема
+
+![](./res/final.png)
+
 ### Задание 3
+
+#### Таблицы фактов
+
+Перед началом работы нужно создать таблицы фактов. В данный момент они создаются в конце миграции.
+
+FACT_2:
+
+![](./res/fact_2.png)
+
+**Примечание:** STREET_ID не может являться unique, так как данные хранятся в этой таблице, а не отдельной с улицами. Так сделано для удобства.
+
+
+FACT_3:
+
+![](./res/fact_3.png)
+
+#### Установка Oracle Analytic Workspace Manager 
 
 Необходимо получить из БД пару отчётов с помощью Oracle Analytic Workspace Manager.
 Скачиваем [отсюда](https://www.oracle.com/database/technologies/olap-downloads.html) версию `for Oracle 12.1.0.2`.
@@ -116,10 +151,12 @@ java -mx1024m -Duser.country=us -Duser.language=en -jar awm12.1.0.1.0B.jar
     - страна (`country`)
     - город (`city`)
     - издание (`office`)
-- время (`study_time`)
+- время (`time`)
+    - все года (`all_years`)
     - год (`year`)
     - семестр (`term`)
 - общежитие (`dormitory`)
+    - все общежития (`all_dormitories`)
     - адрес (`address`)
     
 Заходим в маппинг величины и размечаем для каждого пункта свой столбец в таблице. Для наиболее высоких уровней оставляем строки. Например:
@@ -127,4 +164,13 @@ java -mx1024m -Duser.country=us -Duser.language=en -jar awm12.1.0.1.0B.jar
 
 #### Кубы
 
-Кубы -- это представления данных на базе величин. Создаём куб `LAB_CUBE` и добавляем в него все величины.
+Кубы -- это представления данных на базе величин. Каждому кубу сопоставим свою таблицу фактов (по номеру).
+
+- `LAB_CUBE_2`
+    - Dimensions: `time`, `birth_place`
+    - Mesuares: ``
+    - Calculated Measures: ``
+- `LAB_CUBE_3`
+    - Dimensions: `time`, `pubication_place`
+    - Mesuares: ``
+    - Calculated Measures: ``

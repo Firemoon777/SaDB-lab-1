@@ -399,3 +399,6 @@ def random_time(start, size):
 
 def generate_date():
     return datetime.datetime.fromtimestamp(random_time(1567296000, 23673600))
+
+def generate_birthdate():
+    return datetime.datetime.fromtimestamp(random_time(631152000, 915148800-631152000))

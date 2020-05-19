@@ -15,7 +15,8 @@ class Conference(Base):
 
     name = sql.Column(sql.String(100))
     place = sql.Column(sql.String(100))
-    date = sql.Column(sql.DateTime)
+    date_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    date = relationship('FinalTime')
 
     participants = relationship('Person', secondary=conference_person)
 

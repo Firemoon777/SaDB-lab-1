@@ -12,8 +12,10 @@ class LibraryRecord(Base):
     taken_by_id = sql.Column(sql.Integer, sql.ForeignKey('f_person.id'))
     taken_by = relationship('Person')
 
-    taken_at = sql.Column(sql.Date, nullable=False)
-    returned_at = sql.Column(sql.Date)
+    taken_at_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    taken_at = relationship('FinalTime', foreign_keys=[taken_at_id])
+    returned_at_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    returned_at = relationship('FinalTime', foreign_keys=[returned_at_id])
 
     def serialize(self):
         return {

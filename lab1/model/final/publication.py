@@ -26,7 +26,8 @@ class Publication(Base):
     pages = sql.Column(sql.Integer)
     type = sql.Column(sql.String(100))
     quote_index = sql.Column(sql.Float)
-    date = sql.Column(sql.DateTime)
+    date_id = sql.Column(sql.DateTime, sql.ForeignKey('f_time.id'))
+    date = relationship('FinalTime')
 
     authors = relationship('Person', secondary=publication_person)
 

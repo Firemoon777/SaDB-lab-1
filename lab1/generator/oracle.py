@@ -23,7 +23,7 @@ def fill_oracle():
         p = OraclePerson()
         p.id = generate_person_id()
         p.name = generate_name()
-        p.birth_date = generate_date()
+        p.birth_date = generate_birthdate()
 
         p.country_id, p.country = generate_country()
         p.city_id, p.city = generate_city()

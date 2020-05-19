@@ -15,8 +15,12 @@ class DormitoryPerson(Base):
     room_id = sql.Column(sql.Integer, sql.ForeignKey('f_room.id'))
     room = relationship('Room')
     price = sql.Column(sql.Integer)
-    lives_from = sql.Column(sql.Date)
-    lives_to = sql.Column(sql.Date)
+
+    lives_from_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    lives_from = relationship('FinalTime', foreign_keys=[lives_from_id])
+    lives_to_id = sql.Column(sql.Date, sql.ForeignKey('f_time.id'))
+    lives_to = relationship('FinalTime', foreign_keys=[lives_to_id])
+
 
     def serialize(self):
         return {
