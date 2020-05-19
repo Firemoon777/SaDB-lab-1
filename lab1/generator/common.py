@@ -166,10 +166,40 @@ def generate_language():
     ])
 
 
-def generate_source():
-    return random.choice([
+def generate_city():
+    data = [
         "Москва", "Тверь", "Санкт-Петербург", "Челябинск"
+    ]
+    i = random.randrange(len(data))
+    return i + 1, data[i]
+
+
+def generate_country():
+    data = [
+        "Российская федерация"
+    ]
+    i = random.randrange(len(data))
+    return i + 1, data[i]
+
+
+def generate_street():
+    return random.choice([
+        "Ленина ул.",
+        "Советская ул.",
+        "Революции пл.",
+        "Энтузиастов ул.",
+        "Сони Кривой ул.",
     ])
+
+
+def generate_office():
+    data = [
+        "Пятёрочка",
+        "Зингер",
+        "Рога и Ко",
+    ]
+    i = random.randrange(len(data))
+    return i + 1, data[i]
 
 
 def generate_source_type():
@@ -200,13 +230,15 @@ def generate_qualification():
     ])
 
 
-def generate_dormatory():
-    return random.choice([
-        "Вяземский пер., 3А",
-        "Белорусская ул., 6",
-        "Ленсовета",
+def generate_dormitory():
+    street = random.choice([
+        "Вяземский пер.",
+        "Белорусская ул.",
+        "Ленсовета ул.",
         "Альпийский п-к",
     ])
+    building = random.randrange(200)
+    return f'{street}, д.{building}'
 
 
 def generate_is_exam():
@@ -267,7 +299,68 @@ def generate_room():
 
 
 def generate_publication_name():
-    return "Публикация #" + str(random.randrange(5000))
+    first = [
+        "Солнечный",
+        "Траурный",
+        "Плюшевый",
+        "Бешеный",
+        "Памятный",
+        "Базовый",
+        "Ласковый",
+        "Радужный",
+        "Огненный",
+        "Ламповый",
+        "Пепельный",
+        "Жареный",
+        "Загнанный",
+    ]
+    second = [
+        "зайчик",
+        "глобус",
+        "ветер",
+        "пёсик",
+        "щавель",
+        "копчик",
+        "егерь",
+        "Игорь",
+        "невод",
+        "лобстер",
+        "жемчуг",
+        "кольщик",
+        "йогурт",
+    ]
+    third = [
+        "стеклянного",
+        "ванильного",
+        "резонного",
+        "широкого",
+        "дешевого",
+        "горбатого",
+        "собачьего",
+        "волшебного",
+        "исконного",
+        "лохматого",
+        "огромного",
+        "едрённого",
+    ]
+    fourth = [
+        "глаза",
+        "плова",
+        "дела",
+        "жира",
+        "мема",
+        "сала",
+        "фена",
+        "зала",
+        "рака",
+        "бура",
+    ]
+    return "{} {} {} {}".format(
+        random.choice(first),
+        random.choice(second),
+        random.choice(third),
+        random.choice(fourth),
+    )
 
 
 def generate_pages():

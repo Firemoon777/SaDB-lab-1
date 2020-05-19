@@ -15,23 +15,23 @@ if __name__ == '__main__':
 
     if sys.argv[1] == 'create':
 
-        from lab1.model.postgres import create_schema as postgres_create_schema
-        from .generator.postgres import fill_postgres
-        postgres_create_schema(databases['postgres']['engine'])
-        fill_postgres()
+        # from lab1.model.postgres import create_schema as postgres_create_schema
+        # from .generator.postgres import fill_postgres
+        # postgres_create_schema(databases['postgres']['engine'])
+        # fill_postgres()
 
         from lab1.model.mysql import create_schema as mysql_create_schema
         from .generator.mysql import fill_mysql
         mysql_create_schema(databases['mysql']['engine'])
         fill_mysql()
 
-        from lab1.model.oracle import create_schema as oracle_create_schema
-        from .generator.oracle import fill_oracle
-        oracle_create_schema(databases['oracle']['engine'])
-        fill_oracle()
+        # from lab1.model.oracle import create_schema as oracle_create_schema
+        # from .generator.oracle import fill_oracle
+        # oracle_create_schema(databases['oracle']['engine'])
+        # fill_oracle()
 
-        from .generator.mongo import fill_mongo
-        fill_mongo()
+        # from .generator.mongo import fill_mongo
+        # fill_mongo()
 
     elif sys.argv[1] == 'migrate':
 

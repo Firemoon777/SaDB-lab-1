@@ -42,9 +42,15 @@ def fill_mysql():
         p = Publication()
         p.name = generate_publication_name()
         p.language = generate_language()
-        p.source = generate_place()
+
+        p.country_id, p.country = generate_country()
+        p.city_id, p.city = generate_city()
+        p.city_id = p.country_id * 100 + p.city_id
+        p.office_id, p.office = generate_office()
+        p.office = f'{p.office}, г.{p.city}'
+        p.office_id = p.city_id * 100 + p.office_id
+
         p.pages = generate_pages()
-        p.place = generate_place()
         p.type = generate_publication_type()
         p.date = generate_date()
         p.quote_index = generate_quote_index()

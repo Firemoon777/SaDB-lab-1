@@ -15,9 +15,15 @@ class Publication(Base):
 
     name = sql.Column(sql.String(300))
     language = sql.Column(sql.String(100))
-    source = sql.Column(sql.String(100))
+
+    country = sql.Column(sql.String(100))
+    country_id = sql.Column(sql.Integer)
+    city = sql.Column(sql.String(100))
+    city_id = sql.Column(sql.Integer)
+    office = sql.Column(sql.String(100))
+    office_id = sql.Column(sql.Integer)
+
     pages = sql.Column(sql.Integer)
-    place = sql.Column(sql.String(100))
     type = sql.Column(sql.String(100))
     quote_index = sql.Column(sql.Float)
     date = sql.Column(sql.DateTime)

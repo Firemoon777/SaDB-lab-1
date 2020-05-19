@@ -16,7 +16,7 @@ def fill_mongo():
     dormitories = []
     for i in range(dormitory_count):
         d = Dormitory()
-        d.name = generate_dormatory()
+        d.name = generate_dormitory()
         d.total_rooms = generate_room()
         d.save()
         dormitories.append(d)

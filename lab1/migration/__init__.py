@@ -113,7 +113,6 @@ def migrate_all():
             session_oracle.add(f)
         else:
             # Если не заполнено, заполняем
-            print(m.id)
             if f.position is None:
                 f.position = m.position
 
@@ -288,9 +287,12 @@ def migrate_all():
         f = FinalPublication()
         f.name = r.name
         f.language = r.language
-        f.source = r.source
-        f.pages = r.pages
-        f.place = r.place
+        f.country = r.country
+        f.country_id = r.country_id
+        f.city = r.city
+        f.city_id = r.city_id
+        f.office = r.office
+        f.office_id = r.office_id
         f.type = r.type
         f.quote_index = r.quote_index
         f.date = r.date
