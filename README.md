@@ -157,10 +157,14 @@ java -mx1024m -Duser.country=us -Duser.language=en -jar awm12.1.0.1.0B.jar
     - семестр (`term`)
 - общежитие (`dormitory`)
     - все общежития (`all_dormitories`)
-    - адрес (`address`)
+    - общежитие (`dormitory`)
     
 Заходим в маппинг величины и размечаем для каждого пункта свой столбец в таблице. Для наиболее высоких уровней оставляем строки. Например:
 ![](./res/mapping.png)
+
+Так же AWM по имени `time` угадывает, что это будет дата/время. В этом типе данных нужно дополнить когда заканчивается промежуток и сколько "детей" может быть у уровня.
+
+![](./res/mapping-time.png)
 
 #### Кубы
 
@@ -168,9 +172,32 @@ java -mx1024m -Duser.country=us -Duser.language=en -jar awm12.1.0.1.0B.jar
 
 - `LAB_CUBE_2`
     - Dimensions: `time`, `birth_place`
-    - Mesuares: ``
-    - Calculated Measures: ``
+    - Measures: `TOTAL_PERSONS`
+    - Calculated Measures: `None`
 - `LAB_CUBE_3`
     - Dimensions: `time`, `pubication_place`
-    - Mesuares: ``
-    - Calculated Measures: ``
+    - Measures: `TOTAL_PERSONS`
+    - Calculated Measures: `None`
+
+При создании куба во вкладке `Partitioning` убираем галку с пункта `Partition cube`.
+
+После создания хотя бы одного измерения (Measures) можно размаппить куб на данные. 
+Если информация обо всех уровнях иерархии хранится в одной таблице, достаточно указать ссылку на нижний уровень.
+
+Так как мы считаем сумму людей, в верхней панельки в селекторе `Group By` оставляем `SUM`.
+
+В отличие от маппинга уровней иерархии, здесь нужно прописать `Join Condition`, который связывает таблицу фактов и таблицу с информацией. Предполагается, что таблица фактов -- центр топологии "звезда" и Join можно прописать так: `<field1> = <field2>`.
+
+Пример:
+
+![](./res/cube-mapping.png)
+
+Если всё сделано правильно, то ПКМ по кубу -> `Maintain Cube LAB_CUBE_2`. В появившемся диалоге можно смело нажимать `Finish` и ждать завершения обработки:
+
+![](./res/maintenance-completed.png)
+
+После этого можно смотреть данные в кубе. ПКМ по кубу -> `View Data LAB_CUBE_2...`
+
+![](./res/measure-data-viewer-1.png)
+
+![](./res/measure-data-viewer-2.png)
